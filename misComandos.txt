@@ -1,6 +1,6 @@
 # Comandos Git
 
-git init
+--Comandos para usar en todos momento
 git status
 git log
 git add
@@ -8,4 +8,10 @@ git add .
 git commit -m "aca el mensaje"
 git tag
 git tag -a "aca mensaje"
+
+
+-- pasos que solo se realizan una vez 
+git init
+git remote add origin <server>
 git config --global http.proxy http://proxyUsername:proxyPassword@proxy.server.com:port
+
