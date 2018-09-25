@@ -9,6 +9,12 @@ git commit -m "aca el mensaje"
 git tag
 git tag -a "aca mensaje"
 
+--Comando menos frecuentes
+
+git checkout -b nombNuevoBranch
+git checkout master  		//vuelve a la rama principal
+git branch -d nombBranchABorrar //borra la rama
+git push origin nombBranch	//Para q este disponible a los demas el nuevo brach
 
 -- pasos que solo se realizan una vez 
 git init
