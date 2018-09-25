@@ -7,7 +7,7 @@ git add
 git add .
 git commit -m "ingresar el mensaje"
 git tag
-git tag -a "aca mensaje"
+git tag -a "aca se pone el mensaje"
 git log --oneline
 
 --Comando para Remote repository 
