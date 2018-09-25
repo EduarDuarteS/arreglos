@@ -8,8 +8,13 @@ git add .
 git commit -m "aca el mensaje"
 git tag
 git tag -a "aca mensaje"
-git push origin nombBranch
 git log --oneline
+
+--Comando para Remote repository 
+git push originAliasRepositorio nombBranch
+git pull originAliasRepositorio nombBranch
+git fetch originAliasRepositorio nombBranch
+
 
 --Visores
 gitk
@@ -20,7 +25,8 @@ tig
 git checkout -b nombNuevoBranch
 git checkout master  		//vuelve a la rama principal
 git branch -d nombBranchABorrar //borra la rama
-git push origin nombBranch	//Para q este disponible a los demas el nuevo brach
+git push originAliasRepositorio nombBranch	//Para q este disponible a los demas el nuevo brach
+git fetch
 
 --Comandos para manejar el log
 
@@ -62,6 +68,8 @@ git log --pretty=format:"%h %s" --graph
 -- pasos que solo se realizan una vez 
 git init
 git clone https://github.com/EduarDuarteS/nombProyecto.git
-git remote add origin https://github.com/EduarDuarteS/nombProyecto.git
+git remote add originAliasRepositorio https://github.com/EduarDuarteS/nombProyecto.git
+git remote -v //para ver todos
+git remote rm originAliasRepositorio
 git config --global http.proxy http://proxyUsername:proxyPassword@proxy.server.com:port
 
