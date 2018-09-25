@@ -1,0 +1,11 @@
+# Comandos Git
+
+git init
+git status
+git log
+git add
+git add .
+git commit -m "aca el mensaje"
+git tag
+git tag -a "aca mensaje"
+git config --global http.proxy http://proxyUsername:proxyPassword@proxy.server.com:port
