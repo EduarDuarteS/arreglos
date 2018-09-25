@@ -10,7 +10,10 @@ git tag
 git tag -a "aca mensaje"
 git push origin nombBranch
 git log --oneline
+
+--Visores
 gitk
+tig
 
 --Comando menos frecuentes
 
