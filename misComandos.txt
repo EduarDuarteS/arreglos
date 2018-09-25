@@ -3,9 +3,9 @@
 --Comandos para usar en todos momento
 git status
 git log
-git add
+git add  
 git add .
-git commit -m "aca el mensaje"
+git commit -m "ingresar el mensaje"
 git tag
 git tag -a "aca mensaje"
 
