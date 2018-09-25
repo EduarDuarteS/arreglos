@@ -8,10 +8,68 @@ git add .
 git commit -m "ingresar el mensaje"
 git tag
 git tag -a "aca mensaje"
+git log --oneline
+
+--Comando para Remote repository 
+git push originAliasRepositorio nombBranch
+git pull originAliasRepositorio nombBranch
+git fetch originAliasRepositorio nombBranch
+
+
+--Visores
+gitk
+tig
+
+--Comando menos frecuentes
+
+git checkout -b nombNuevoBranch
+git checkout master  		//vuelve a la rama principal
+git branch -d nombBranchABorrar //borra la rama
+git push originAliasRepositorio nombBranch	//Para q este disponible a los demas el nuevo brach
+git fetch
+
+--Comandos para manejar el log
+
+git log –p -2			//-p sirve para ver el detalle de los cambios -2 para ver solo los ultimos dos cambios
+git log --stat			//ver las estadisticas
+
+git log -U1 --word-diff		//Diferencia por palabra no se usa mucho
+
+-p		Muestra el parche introducido en cada confirmación.
+--word-diff	Muestra el parche en formato de una palabra.
+--stat	Muestra estadísticas sobre los archivos modificados en cada confirmación.
+--shortstat	Muestra solamente la línea de resumen de la opción --stat.
+--name-only	Muestra la lista de archivos afectados.
+--name-status	Muestra la lista de archivos afectados, indicando además si fueron añadidos, modificados o eliminados.
+--abbrev-commit	Muestra solamente los primeros caracteres de la suma SHA-1, en vez de los 40 caracteres de que se compone.
+--relative-date	Muestra la fecha en formato relativo (por ejemplo, “2 weeks ago” (“hace 2 semanas”)) en lugar del formato completo.
+--graph	Muestra un gráfico ASCII con la historia de ramificaciones y uniones.
+--pretty	Muestra las confirmaciones usando un formato alternativo. Posibles opciones son oneline, short, full, fuller y format 				(mediante el cual puedes especificar tu propio formato).
+--oneline	Un cómodo acortamiento de la opción --pretty=oneline --abbrev-commit.
+
+git log --pretty=format:"%h %s" --graph
+%H	Hash de la confirmación
+%h	Hash de la confirmación abreviado
+%T	Hash del árbol
+%t	Hash del árbol abreviado
+%P	Hashes de las confirmaciones padre
+%p	Hashes de las confirmaciones padre abreviados
+%an	Nombre del autor
+%ae	Dirección de correo del autor
+%ad	Fecha de autoría (el formato respeta la opción -–date)
+%ar	Fecha de autoría, relativa
+%cn	Nombre del confirmador
+%ce	Dirección de correo del confirmador
+%cd	Fecha de confirmación
+%cr	Fecha de confirmación, relativa
+%s	Asunto
 
 
 -- pasos que solo se realizan una vez 
 git init
-git remote add origin <server>
+git clone https://github.com/EduarDuarteS/nombProyecto.git
+git remote add originAliasRepositorio https://github.com/EduarDuarteS/nombProyecto.git
+git remote -v //para ver todos
+git remote rm originAliasRepositorio
 git config --global http.proxy http://proxyUsername:proxyPassword@proxy.server.com:port
 
