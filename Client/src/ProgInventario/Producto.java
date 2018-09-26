@@ -1,4 +1,4 @@
-package client;
+package ProgInventario;
 
 public class Producto {
 
@@ -6,7 +6,13 @@ public class Producto {
     // Contructores
     public Producto() {
     }
-
+    public Producto(int numIdentif, String nomb, int numSerie, double valor, String nombProv) {
+        this.numIdentif=numIdentif;
+        this.nomb=nomb;
+        this.numSerie = numSerie;
+        this.valor=valor;
+        this.nombProv=nombProv;
+    }
 
     private int numIdentif;
     private String nomb;

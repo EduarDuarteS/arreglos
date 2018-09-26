@@ -1,8 +1,8 @@
-package Asistencia;
+package ProgInventario;
 
 import javax.swing.JOptionPane;
 
-public class ListaAsistencia {
+public class Inventario {
     public static void main(String[] args) {
         int cantidadAsistentes = 0;
         cantidadAsistentes =
@@ -11,7 +11,7 @@ public class ListaAsistencia {
         if (cantidadAsistentes < 0) {
             cantidadAsistentes = 4;
         }
-        ControlAsistencia control = new ControlAsistencia(cantidadAsistentes);
+        Control control = new Control(cantidadAsistentes);
         control.iniciar();
     }
 }

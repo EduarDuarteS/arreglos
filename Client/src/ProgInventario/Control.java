@@ -1,4 +1,4 @@
-package Asistencia;
+package ProgInventario;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -11,7 +11,7 @@ import javax.swing.JOptionPane;
 import Asistencia.Formulario;
 
 public class Control implements ActionListener {
-    private Formulario formulario;
+    private FormularioProd formulario;
     private Persona persona;
     private int contador;
     private int cantidad;
@@ -22,7 +22,7 @@ public class Control implements ActionListener {
         this.contador = 0;
         this.cantidad = cantidad;
         this.arregloPersonas = new Persona[this.cantidad];
-        this.formulario = new Formulario();
+        this.formulario = new FormularioProd();
         this.formulario.setIconImage(new ImageIcon(getClass().getResource("logo.png")).getImage());
         this.formulario
             .getBtnGuardar()
@@ -40,7 +40,7 @@ public class Control implements ActionListener {
 
     public void iniciar() {
         if (formulario == null) {
-            formulario = new Formulario();
+            formulario = new FormularioProd();
             formulario.setVisible(true);
         } else {
             formulario.setVisible(true);

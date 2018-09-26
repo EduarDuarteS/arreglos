@@ -1,4 +1,4 @@
-package Asistencia;
+package ProgInventario;
 
 import java.util.Date;
 
