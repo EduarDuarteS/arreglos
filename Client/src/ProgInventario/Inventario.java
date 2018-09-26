@@ -1,17 +1,19 @@
 package ProgInventario;
 
+import ProgInventario.controllers.ControlProducto;
+
 import javax.swing.JOptionPane;
 
 public class Inventario {
     public static void main(String[] args) {
-        int cantidadAsistentes = 0;
-        cantidadAsistentes =
-            Integer.parseInt(JOptionPane.showInputDialog(null, "¿Cuántos asistentes desea registrar?",
-                                                         "Registro de asistencia", JOptionPane.QUESTION_MESSAGE));
-        if (cantidadAsistentes < 0) {
-            cantidadAsistentes = 4;
+        int cantidadProductos = 0;
+        cantidadProductos =
+            Integer.parseInt(JOptionPane.showInputDialog(null, "¿Cuántos productos desea registrar?",
+                                                         "Registro De Productos Nuevos", JOptionPane.QUESTION_MESSAGE));
+        if (cantidadProductos < 0) {
+            cantidadProductos = 4;
         }
-        Control control = new Control(cantidadAsistentes);
-        control.iniciar();
+        ControlProducto controlProd = new ControlProducto(cantidadProductos);
+        controlProd.iniciar();
     }
 }

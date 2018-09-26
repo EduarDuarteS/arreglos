@@ -1,4 +1,4 @@
-package ProgInventario;
+package ProgInventario.entitys;
 
 public class Producto {
 
