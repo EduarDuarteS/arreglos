@@ -2,10 +2,11 @@ package ProgInventario.controllers;
 
 import ProgInventario.entitys.Producto;
 
-import ProgInventario.intergazGraf.FormularioProd;
+import ProgInventario.intergazGraf.FormularioInventario;
+
 
 public class ControlInventario {
-    private FormularioProd formulario;
+    private FormularioInventario formulario;
     private Producto producto;
     private int contador;
     private int cantidad;
@@ -18,7 +19,7 @@ public class ControlInventario {
     
     public void iniciar() {
         if (formulario == null) {
-            formulario = new FormularioProd();
+            formulario = new FormularioInventario();
             formulario.setVisible(true);
         } else {
             formulario.setVisible(true);

@@ -94,6 +94,7 @@ public class FormularioProd {
     }
 
     public void setVisible(boolean visi) {
+        frame.setVisible(true);
     }
 
     public JLabel crearLabel(String label, int posX, int posY, int width, int height) {
