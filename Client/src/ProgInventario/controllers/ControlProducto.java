@@ -16,7 +16,7 @@ import Asistencia.Formulario;
 
 
 public class ControlProducto implements ActionListener {
-    private FormularioProd formulario;
+    private FormularioProd formProd;
     private Producto producto;
     private int contador;
     private int cantidad;
@@ -27,52 +27,55 @@ public class ControlProducto implements ActionListener {
         this.contador = 0;
         this.cantidad = cantidad;
         this.arregloProductos = new Producto[this.cantidad];
-        this.formulario = new FormularioProd();
-        this.formulario.setIconImage(new ImageIcon(getClass().getResource("../assets/logo.png")).getImage());
-        this.formulario
+        this.formProd = new FormularioProd();
+        this.formProd.setIconImage(new ImageIcon(getClass().getResource("../assets/logo.png")).getImage());
+        this.formProd
             .getBtnGuardar()
             .addActionListener(this);
-        this.formulario
+        this.formProd
             .getBtnLimpiar()
             .addActionListener(this);
-        this.formulario
+        this.formProd
             .getBtnVerListaProductos()
             .addActionListener(this);
-        this.formulario
+        this.formProd
+            .getBtnTerminar()
+            .addActionListener(this);
+        this.formProd
             .getLblLimite()
             .setText("de " + cantidad);
     }
 
     public void iniciar() {
-        if (formulario == null) {
-            formulario = new FormularioProd();
-            formulario.setVisible(true);
+        if (formProd == null) {
+            formProd = new FormularioProd();
+            formProd.setVisible(true);
         } else {
-            formulario.setVisible(true);
+            formProd.setVisible(true);
         }
     }
 
     public Producto obtenerProducto() {
-        
+
         producto = new Producto();
         if (validarDatos()) {
             contador++;
-            formulario.getLblCantidadProductos().setText(String.valueOf(contador));
-            producto.setNumIdentif(Integer.parseInt(formulario.getNumIdentJTF().getText()));
-            producto.setNomb(formulario.getNombProductoJTF().getText());
-            producto.setNumSerie(Integer.parseInt(formulario.getNumSerieJTF().getText()));
-            producto.setValor(Double.parseDouble(formulario.getValorJTF().getText()));
-            producto.setNombProv(formulario.getNomProveeJTF().getText());
+            formProd.getLblCantidadProductos().setText(String.valueOf(contador));
+            producto.setNumIdentif(Integer.parseInt(formProd.getNumIdentJTF().getText()));
+            producto.setNomb(formProd.getNombProductoJTF().getText());
+            producto.setNumSerie(Integer.parseInt(formProd.getNumSerieJTF().getText()));
+            producto.setValor(Double.parseDouble(formProd.getValorJTF().getText()));
+            producto.setNombProv(formProd.getNomProveeJTF().getText());
         }
         return producto;
     }
 
     public void limpiar() {
-        formulario.getNomProveeJTF().setText("");
-        formulario.getNombProductoJTF().setText("");
-        formulario.getNumIdentJTF().setText("");
-        formulario.getNumSerieJTF().setText("");
-        formulario.getValorJTF().setText("");
+        formProd.getNomProveeJTF().setText("");
+        formProd.getNombProductoJTF().setText("");
+        formProd.getNumIdentJTF().setText("");
+        formProd.getNumSerieJTF().setText("");
+        formProd.getValorJTF().setText("");
     }
 
     public void listarProductos() {
@@ -87,30 +90,30 @@ public class ControlProducto implements ActionListener {
         }
 
         if (listaProductos == "") {
-            JOptionPane.showMessageDialog(formulario.getRootPane(), "No hay productos en la lista para mostrar.",
+            JOptionPane.showMessageDialog(formProd.getRootPane(), "No hay productos en la lista para mostrar.",
                                           "Listado de personas", JOptionPane.WARNING_MESSAGE);
         } else {
-            JOptionPane.showMessageDialog(formulario.getRootPane(), listaProductos, "Listado de productos",
+            JOptionPane.showMessageDialog(formProd.getRootPane(), listaProductos, "Listado de productos",
                                           JOptionPane.INFORMATION_MESSAGE);
         }
     }
 
     public void verificar() {
         if (contador == cantidad) {
-            JOptionPane.showMessageDialog(formulario.getRootPane(), "Se han registrado todos los productos",
+            JOptionPane.showMessageDialog(formProd.getRootPane(), "Se han registrado todos los productos",
                                           "Ha finalizado", JOptionPane.WARNING_MESSAGE);
             listarProductos();
-            formulario.dispose();
-            formulario = null;
+            formProd.dispose();
+            formProd = null;
         }
     }
 
     public boolean validarDatos() {
         boolean valido = true;
-        if (formulario.getNumIdentJTF()
-                      .getText()
-                      .isEmpty()) {
-            JOptionPane.showMessageDialog(formulario.getRootPane(), "Se detectado un dato nulo",
+        if (formProd.getNumIdentJTF()
+                    .getText()
+                    .isEmpty()) {
+            JOptionPane.showMessageDialog(formProd.getRootPane(), "Se detectado un dato nulo",
                                           "El Número de Identificación es requerido", JOptionPane.WARNING_MESSAGE);
             valido = false;
         }
@@ -119,15 +122,18 @@ public class ControlProducto implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == formulario.getBtnGuardar()) {
+        if (e.getSource() == formProd.getBtnGuardar()) {
             arregloProductos[contador] = obtenerProducto();
             limpiar();
             verificar();
-        } else if (e.getSource() == formulario.getBtnLimpiar()) {
+        } else if (e.getSource() == formProd.getBtnLimpiar()) {
             limpiar();
-        } else if (e.getSource() == formulario.getBtnVerListaProductos()) {
+        } else if (e.getSource() == formProd.getBtnVerListaProductos()) {
             listarProductos();
 
+        } else if (e.getSource() == formProd.getBtnTerminar()) {
+            formProd.dispose();
+            System.out.println("ent");
         }
     }
 }

@@ -13,7 +13,7 @@ import java.awt.event.ActionListener;
 
 
 public class ControlInventario implements ActionListener {
-    private FormularioInventario formulario;
+    private FormularioInventario formInv;
     private Producto producto;
     private int contador;
     private int cantidad;
@@ -22,61 +22,57 @@ public class ControlInventario implements ActionListener {
     private ProductoExistencias productoExistencias;
 
     public ControlInventario() {
-        //instancia Unica del arreglo de existencias de productos
         iniciar();
+        //instancia Unica del arreglo de existencias de productos
         productoExistencias = ProductoExistencias.getSingletonInstance();
-        this.formulario
+        this.formInv
             .getBtnAddProductos()
             .addActionListener(this);
-        this.formulario
+        this.formInv
             .getBtnVerExistenciasProd()
             .addActionListener(this);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == formulario.getBtnVerExistenciasProd()) {
+        if (e.getSource() == formInv.getBtnVerExistenciasProd()) {
             verExistenciaProd();
-        } else if (e.getSource() == formulario.getBtnAddProductos()) {
-
+        } else if (e.getSource() == formInv.getBtnAddProductos()) {
+            agregarProductos();
+            formInv.setVisible(true);
         }
     }
 
     public void verExistenciaProd() {
-        if (productoExistencias.getProducto()[1].equals(null))
-            JOptionPane.showMessageDialog(formulario.getRootPane(), "No hay productos en la lista para mostrar.",
+        if (productoExistencias.cantidad() == 0)
+            JOptionPane.showMessageDialog(formInv.getRootPane(), "No hay productos en la lista para mostrar.",
                                           "Listado de personas", JOptionPane.WARNING_MESSAGE);
         else {
-
+            JOptionPane.showMessageDialog(formInv.getRootPane(), productoExistencias.toString(),
+                                          "Listado de productos", JOptionPane.INFORMATION_MESSAGE);
         }
     }
 
-    public void listarProductos() {
-        listaProductos = "";
-        int cant = 0;
-        for (Producto p : arregloProductos) {
-            if (p != null) {
-                listaProductos +=
-                    "Producto " + ++cant + ": " + p.getNomb() + " con identificación: " + p.getNumIdentif() +
-                    " con valor: " + p.getValor() + "$ con proveedor: " + p.getNombProv() + "\n";
-            }
+    public void agregarProductos() {
+        int cantidadProductos = 0;
+        cantidadProductos =
+            Integer.parseInt(JOptionPane.showInputDialog(null, "¿Cuántos productos desea registrar?",
+                                                         "Registro De Productos Nuevos", JOptionPane.QUESTION_MESSAGE));
+        if (cantidadProductos < 0) {
+            cantidadProductos = 4;
         }
-
-        if (listaProductos == "") {
-            JOptionPane.showMessageDialog(formulario.getRootPane(), "No hay productos en la lista para mostrar.",
-                                          "Listado de personas", JOptionPane.WARNING_MESSAGE);
-        } else {
-            JOptionPane.showMessageDialog(formulario.getRootPane(), listaProductos, "Listado de productos",
-                                          JOptionPane.INFORMATION_MESSAGE);
-        }
+   
+        formInv.setVisible(false);
+        ControlProducto controlProd = new ControlProducto(cantidadProductos);
+        controlProd.iniciar();
     }
 
     public void iniciar() {
-        if (formulario == null) {
-            formulario = new FormularioInventario();
-            formulario.setVisible(true);
+        if (formInv == null) {
+            formInv = new FormularioInventario();
+            formInv.setVisible(true);
         } else {
-            formulario.setVisible(true);
+            formInv.setVisible(true);
         }
     }
 

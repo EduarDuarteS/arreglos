@@ -46,12 +46,12 @@ public class FormularioProd {
 
     private void grafRegAsist() {
         //Se agrega el titulo
-        JLabel JLTitulo= new JLabel("Ingrese El Producto", JLabel.CENTER);
+        JLabel JLTitulo = new JLabel("Ingrese El Producto", JLabel.CENTER);
         JLTitulo.setBounds(0, 10, widthFrame, 20);
         JLTitulo.setForeground(Color.BLUE);
         JLTitulo.setFont(new Font("Serif", Font.BOLD, 16));
         panel.add(JLTitulo);
-        
+
         //Se agregan los labels para solicitar info
         int posX = 20, posY = 60, width = 200, height = 25;
         numIdentJLab = crearLabel("Num de Identifiación:", posX, posY, width, 25);
@@ -59,28 +59,27 @@ public class FormularioProd {
         numSerieJLab = crearLabel("Num de Serie:", posX, posY += 30, width, height);
         valorJLab = crearLabel("Valor del producto:", posX, posY += 30, width, height);
         nombProveedorJLab = crearLabel("Nombre del proveedor:", posX, posY += 30, width, height);
-        
-        //Se agregan los campos para ingresar los datos
-        posY= 60;
-        numIdentJTF=crearJTextF(posY);
-        nombProductoJTF =crearJTextF(posY+=30); 
-        numSerieJTF=crearJTextF(posY+=30); 
-        valorJTF=crearJTextF(posY+=30);
-        nomProveeJTF=crearJTextF(posY+=30);
 
-        
+        //Se agregan los campos para ingresar los datos
+        posY = 60;
+        numIdentJTF = crearJTextF(posY);
+        nombProductoJTF = crearJTextF(posY += 30);
+        numSerieJTF = crearJTextF(posY += 30);
+        valorJTF = crearJTextF(posY += 30);
+        nomProveeJTF = crearJTextF(posY += 30);
+
+
         //Se agregan los botones
-        width=90;
-        BtnVerListaProductos = crearButton("Lista Productos",posX-=10, posY+=50, width+40, height);
-        BtnLimpiar= crearButton("Limpiar",posX+=50+width, posY, width, height);
-        BtnGuardar= crearButton("Guardar",posX+=10+width, posY, width, height);
-        BtnTerminar= crearButton("Finalizar",posX+=10+width, posY, 90, height);
-        
+        width = 90;
+        BtnVerListaProductos = crearButton("Lista Productos", posX -= 10, posY += 50, width + 40, height);
+        BtnLimpiar = crearButton("Limpiar", posX += 50 + width, posY, width, height);
+        BtnGuardar = crearButton("Guardar", posX += 10 + width, posY, width, height);
+        BtnTerminar = crearButton("Finalizar", posX += 10 + width, posY, 90, height);
+
         //Se agregan los label que indican la cantida de registos
-        crearLabel("Productos registrados: ", widthFrame-245, posY+= 30, width+100, height);
-        LblCantidadProductos = crearLabel("0", widthFrame-90, posY, width, height);                     
-        LblLimite = crearLabel("", widthFrame-75, posY , width, height);
-        
+        crearLabel("Productos registrados: ", widthFrame - 245, posY += 30, width + 100, height);
+        LblCantidadProductos = crearLabel("0", widthFrame - 90, posY, width, height);
+        LblLimite = crearLabel("", widthFrame - 75, posY, width, height);
 
 
     }
@@ -104,12 +103,14 @@ public class FormularioProd {
         panel.add(lab);
         return lab;
     }
-    public JButton crearButton(String label,int x, int y, int largo, int alto) {
+
+    public JButton crearButton(String label, int x, int y, int largo, int alto) {
         JButton botton = new JButton(label);
         botton.setBounds(x, y, largo, alto);
         panel.add(botton);
         return botton;
     }
+
     public JTextField crearJTextF(int posY) {
         int posX = 180;
         JTextField jtfIn = new JTextField("");
@@ -117,6 +118,7 @@ public class FormularioProd {
         panel.add(jtfIn);
         return jtfIn;
     }
+
     public static void setFrame(JFrame frame) {
         FormularioProd.frame = frame;
     }
@@ -244,6 +246,14 @@ public class FormularioProd {
 
     public JButton getBtnVerListaProductos() {
         return BtnVerListaProductos;
+    }
+
+    public void setBtnTerminar(JButton BtnTerminar) {
+        this.BtnTerminar = BtnTerminar;
+    }
+
+    public JButton getBtnTerminar() {
+        return BtnTerminar;
     }
 
     public void setWidthFrame(int widthFrame) {

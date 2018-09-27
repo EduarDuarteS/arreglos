@@ -58,7 +58,7 @@ public class FormularioInventario {
     }
 
     public void setVisible(boolean visi) {
-        frame.setVisible(true);
+        frame.setVisible(visi);
     }
 
     public void dispose() {
