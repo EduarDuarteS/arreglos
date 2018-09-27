@@ -12,7 +12,7 @@ public class Inventario {
         //Ver los productos Ingresados
         
         ControlInventario controlInventario = new ControlInventario();
-        controlInventario.iniciar();
+
             
         
         //Ingresar productos

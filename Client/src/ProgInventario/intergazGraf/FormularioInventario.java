@@ -11,7 +11,7 @@ import javax.swing.JTextField;
 
 public class FormularioInventario {
     static JFrame frame;
-    private JButton BtnAddProductos, VerExistenciasProductos;
+    private JButton BtnAddProductos, BtnVerExistenciasProd;
     private int widthFrame, heightFrame;
 
     private JPanel panel;
@@ -52,7 +52,7 @@ public class FormularioInventario {
 
         //Agregar botones de opciones
         width = 160;
-        VerExistenciasProductos = crearButton("Ver Productos", posX -= 60, posY += 50, width, height);
+        BtnVerExistenciasProd = crearButton("Ver Productos", posX -= 60, posY += 50, width, height);
         BtnAddProductos = crearButton("Agregar Productos", posX += width + 10, posY, width, height);
 
     }
@@ -74,5 +74,29 @@ public class FormularioInventario {
         botton.setBounds(x, y, largo, alto);
         panel.add(botton);
         return botton;
+    }
+
+    public void setBtnAddProductos(JButton BtnAddProductos) {
+        this.BtnAddProductos = BtnAddProductos;
+    }
+
+    public JButton getBtnAddProductos() {
+        return BtnAddProductos;
+    }
+
+    public void setBtnVerExistenciasProd(JButton BtnVerExistenciasProd) {
+        this.BtnVerExistenciasProd = BtnVerExistenciasProd;
+    }
+
+    public JButton getBtnVerExistenciasProd() {
+        return BtnVerExistenciasProd;
+    }
+
+    public void setPanel(JPanel panel) {
+        this.panel = panel;
+    }
+
+    public JPanel getPanel() {
+        return panel;
     }
 }
