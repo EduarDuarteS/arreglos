@@ -43,8 +43,7 @@ public class ControlInventario implements ActionListener {
     }
 
     public void verExistenciaProd() {
-        System.out.println( productoExistencias.getProducto().size());
-        if (productoExistencias.getProducto().size()<=0)
+        if (productoExistencias.getProducto()[1].equals(null))
             JOptionPane.showMessageDialog(formulario.getRootPane(), "No hay productos en la lista para mostrar.",
                                           "Listado de personas", JOptionPane.WARNING_MESSAGE);
         else {

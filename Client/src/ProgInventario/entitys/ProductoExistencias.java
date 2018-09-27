@@ -1,6 +1,5 @@
 package ProgInventario.entitys;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 
 public class ProductoExistencias {
@@ -8,15 +7,15 @@ public class ProductoExistencias {
     //intancia estatica de la clase
     private static ProductoExistencias productoExistencias;
 
-    private ArrayList <Producto> producto;
-    private ArrayList<Integer> cantidad;
+    private Producto[] producto;
+    private int[] cantidad;
 
 
     //singlenton
     // El constructor es privado, no permite que se genere un constructor por defecto.
     private ProductoExistencias() {
-        producto = new ArrayList<Producto>();
-        this.cantidad = new ArrayList<Integer>();
+        producto = new Producto[10];
+        this.cantidad = new int[10];
     }
 
     //Clase estatica q permite instanciar una sola vez
@@ -30,20 +29,19 @@ public class ProductoExistencias {
         return productoExistencias;
     }
 
-
-    public void setProducto(ArrayList<Producto> producto) {
-        this.producto = producto;
+    public void setProducto(Producto producto, int pos) {
+        this.producto[pos] = producto;
     }
 
-    public ArrayList<Producto> getProducto() {
+    public Producto[] getProducto() {
         return producto;
     }
 
-    public void setCantidad(ArrayList<Integer> cantidad) {
-        this.cantidad = cantidad;
+    public void setCantidad(int cantidad, int pos) {
+        this.cantidad[pos] = cantidad;
     }
 
-    public ArrayList<Integer> getCantidad() {
+    public int[] getCantidad() {
         return cantidad;
     }
 
