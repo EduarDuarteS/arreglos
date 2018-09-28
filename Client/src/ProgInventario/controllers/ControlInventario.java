@@ -39,7 +39,6 @@ public class ControlInventario implements ActionListener {
             verExistenciaProd();
         } else if (e.getSource() == formInv.getBtnAddProductos()) {
             agregarProductos();
-            formInv.setVisible(true);
         }
     }
 
@@ -62,7 +61,6 @@ public class ControlInventario implements ActionListener {
             cantidadProductos = 4;
         }
    
-        formInv.setVisible(false);
         ControlProducto controlProd = new ControlProducto(cantidadProductos);
         controlProd.iniciar();
     }

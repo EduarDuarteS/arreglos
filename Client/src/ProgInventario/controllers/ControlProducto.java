@@ -14,6 +14,8 @@ import javax.swing.JOptionPane;
 
 import Asistencia.Formulario;
 
+import ProgInventario.entitys.ProductoExistencias;
+
 
 public class ControlProducto implements ActionListener {
     private FormularioProd formProd;
@@ -103,6 +105,9 @@ public class ControlProducto implements ActionListener {
             JOptionPane.showMessageDialog(formProd.getRootPane(), "Se han registrado todos los productos",
                                           "Ha finalizado", JOptionPane.WARNING_MESSAGE);
             listarProductos();
+            //Se agregan los productos al singlenton
+            for (Producto prod : arregloProductos)
+                ProductoExistencias.getSingletonInstance().addProducto(prod);
             formProd.dispose();
             formProd = null;
         }
