@@ -1,19 +1,21 @@
 # Comandos Git
 
+
+explicandole a tati 
 --Comandos para usar en todos momento
 git status
 git log
-git add  
+git add
 git add .
 git commit -m "ingresar el mensaje"
 git tag
 git tag -a "aca mensaje"
 git log --oneline
-git commit --amend  		//amend traduce enmendar 
+git commit --amend  		//amend traduce enmendar
 git log --graph --oneline --decorate
 
 
---Comando para Remote repository 
+--Comando para Remote repository
 git push originAliasRepositorio nombBranch
 git pull originAliasRepositorio nombBranch
 git fetch originAliasRepositorio nombBranch
@@ -40,42 +42,42 @@ git fetch
 
 --Comandos para manejar el log
 
-git log –p -2			//-p sirve para ver el detalle de los cambios -2 para ver solo los ultimos dos cambios
+git log ï¿½p -2			//-p sirve para ver el detalle de los cambios -2 para ver solo los ultimos dos cambios
 git log --stat			//ver las estadisticas
 
 git log -U1 --word-diff		//Diferencia por palabra no se usa mucho
 
--p		Muestra el parche introducido en cada confirmación.
+-p		Muestra el parche introducido en cada confirmaciï¿½n.
 --word-diff	Muestra el parche en formato de una palabra.
---stat	Muestra estadísticas sobre los archivos modificados en cada confirmación.
---shortstat	Muestra solamente la línea de resumen de la opción --stat.
+--stat	Muestra estadï¿½sticas sobre los archivos modificados en cada confirmaciï¿½n.
+--shortstat	Muestra solamente la lï¿½nea de resumen de la opciï¿½n --stat.
 --name-only	Muestra la lista de archivos afectados.
---name-status	Muestra la lista de archivos afectados, indicando además si fueron añadidos, modificados o eliminados.
+--name-status	Muestra la lista de archivos afectados, indicando ademï¿½s si fueron aï¿½adidos, modificados o eliminados.
 --abbrev-commit	Muestra solamente los primeros caracteres de la suma SHA-1, en vez de los 40 caracteres de que se compone.
---relative-date	Muestra la fecha en formato relativo (por ejemplo, “2 weeks ago” (“hace 2 semanas”)) en lugar del formato completo.
---graph	Muestra un gráfico ASCII con la historia de ramificaciones y uniones.
+--relative-date	Muestra la fecha en formato relativo (por ejemplo, ï¿½2 weeks agoï¿½ (ï¿½hace 2 semanasï¿½)) en lugar del formato completo.
+--graph	Muestra un grï¿½fico ASCII con la historia de ramificaciones y uniones.
 --pretty	Muestra las confirmaciones usando un formato alternativo. Posibles opciones son oneline, short, full, fuller y format 				(mediante el cual puedes especificar tu propio formato).
---oneline	Un cómodo acortamiento de la opción --pretty=oneline --abbrev-commit.
+--oneline	Un cï¿½modo acortamiento de la opciï¿½n --pretty=oneline --abbrev-commit.
 
 git log --pretty=format:"%h %s" --graph
-%H	Hash de la confirmación
-%h	Hash de la confirmación abreviado
-%T	Hash del árbol
-%t	Hash del árbol abreviado
+%H	Hash de la confirmaciï¿½n
+%h	Hash de la confirmaciï¿½n abreviado
+%T	Hash del ï¿½rbol
+%t	Hash del ï¿½rbol abreviado
 %P	Hashes de las confirmaciones padre
 %p	Hashes de las confirmaciones padre abreviados
 %an	Nombre del autor
-%ae	Dirección de correo del autor
-%ad	Fecha de autoría (el formato respeta la opción -–date)
-%ar	Fecha de autoría, relativa
+%ae	Direcciï¿½n de correo del autor
+%ad	Fecha de autorï¿½a (el formato respeta la opciï¿½n -ï¿½date)
+%ar	Fecha de autorï¿½a, relativa
 %cn	Nombre del confirmador
-%ce	Dirección de correo del confirmador
-%cd	Fecha de confirmación
-%cr	Fecha de confirmación, relativa
+%ce	Direcciï¿½n de correo del confirmador
+%cd	Fecha de confirmaciï¿½n
+%cr	Fecha de confirmaciï¿½n, relativa
 %s	Asunto
 
 
--- pasos que solo se realizan una vez 
+-- pasos que solo se realizan una vez
 git init
 git clone https://github.com/EduarDuarteS/nombProyecto.git
 git remote add originAliasRepositorio https://github.com/EduarDuarteS/nombProyecto.git
@@ -84,4 +86,3 @@ git remote rm originAliasRepositorio
 git config --global http.proxy http://proxyUsername:proxyPassword@proxy.server.com:port
 
 Se ingresa un cambio para probar gitflow
-
