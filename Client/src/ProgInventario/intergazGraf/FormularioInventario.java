@@ -11,7 +11,7 @@ import javax.swing.JTextField;
 
 public class FormularioInventario {
     static JFrame frame;
-    private JButton BtnAddProductos, BtnVerExistenciasProd;
+    private JButton BtnAddProductos, BtnVerExistenciasProd,BtnVerEliminarProd,BtnModProd;
     private int widthFrame, heightFrame;
 
     private JPanel panel;
@@ -53,8 +53,9 @@ public class FormularioInventario {
         //Agregar botones de opciones
         width = 160;
         BtnVerExistenciasProd = crearButton("Ver Productos", posX -= 60, posY += 50, width, height);
-        BtnAddProductos = crearButton("Agregar Productos", posX += width + 10, posY, width, height);
-
+        BtnAddProductos = crearButton("Agregar Productos", posX + width + 10, posY, width, height);
+        BtnVerEliminarProd = crearButton("Eliminar Productos", posX , posY += 50, width, height);
+        BtnModProd = crearButton("Modificar Productos", posX += width + 10, posY, width, height);
     }
 
     public void setVisible(boolean visi) {
@@ -98,5 +99,21 @@ public class FormularioInventario {
 
     public JPanel getPanel() {
         return panel;
+    }
+
+    public void setBtnVerEliminarProd(JButton BtnVerEliminarProd) {
+        this.BtnVerEliminarProd = BtnVerEliminarProd;
+    }
+
+    public JButton getBtnVerEliminarProd() {
+        return BtnVerEliminarProd;
+    }
+
+    public void setBtnModProd(JButton BtnModProd) {
+        this.BtnModProd = BtnModProd;
+    }
+
+    public JButton getBtnModProd() {
+        return BtnModProd;
     }
 }

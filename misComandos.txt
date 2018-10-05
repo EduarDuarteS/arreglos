@@ -11,12 +11,13 @@ git tag -a "aca mensaje"
 git log --oneline
 git commit --amend  		//amend traduce enmendar 
 git log --graph --oneline --decorate
+git push origin --tags  //--tags sube todas las etiquetas, se puede reemplazar por el nombre de la etiqueta especifica
 
 
 --Comando para Remote repository 
 git push originAliasRepositorio nombBranch
 git pull originAliasRepositorio nombBranch
-git fetch originAliasRepositorio nombBranch
+git fetch originAliasRepositorio nombBranch //fetch traduce extraer, ir a buscar
 
 
 --Visores

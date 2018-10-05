@@ -39,6 +39,48 @@ public class ProductoExistencias {
             nuevoProductoAcum(producto);
         }
     }
+    // Se Consulta si un producto existe en la lista y se retorna este
+    public Producto obtProdLista(int numId) {
+        for (Producto prod : allProducts) {
+            if (prod.getNumIdentif() == numId) {
+                return prod;
+            }
+        }
+        return null;
+    }
+    
+    public boolean ModificarProd(int numId, Producto newProd){
+        int cont=0;
+        for (Producto prod : allProducts) {
+            if (prod.getNumIdentif() == numId) {
+                allProducts[cont]=newProd;
+                return true;
+            }
+            cont+=1;
+        }
+        
+        return false;
+    }
+
+    //Se elimina el producto indicado de la lista
+    public boolean deleteProdLista(int numId) {
+        int cont = 0;
+        boolean eliminado = false;
+        for (Producto prod : allProducts) {
+            if (eliminado && cont < allProducts.length-1) {
+                allProducts[cont] = allProducts[cont + 1];
+            }
+            if (prod.getNumIdentif() == numId) {
+                allProducts[cont] = null;
+                eliminado = true;
+            }
+            cont += 0;
+        }
+        if (eliminado)
+            allProducts = Arrays.copyOf(allProducts, allProducts.length - 1);
+        return eliminado;
+    }
+
 
     //Si producto ya existe le sumo uno al conteo de
     private boolean productoExiste(Producto productNew) {
@@ -70,10 +112,10 @@ public class ProductoExistencias {
     public String toString() {
         String listProduts = "";
         int index = 0;
-        for (Producto prod : productoAcumulado) {
-        listProduts+=listProduts +" El producto: " + prod.getNomb() +
-                                   " Con Num Ident: "+ prod.getNumIdentif() +
-                                    "Tiene " + cantidad[index] +" Existencias /n";
+        for (Producto prod : allProducts) {
+            listProduts +=
+                listProduts + " El producto: " + prod.getNomb() + " Con Num Ident: " + prod.getNumIdentif() + "Tiene " +
+                cantidad[index] + " Existencias \n";
 
             index += 1;
         }
